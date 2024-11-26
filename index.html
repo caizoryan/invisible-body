@@ -1,0 +1,87 @@
+<!Doctype html>
+<html>
+
+<head>
+	<title>Home</title>
+</head>
+
+<style>
+	.slider {
+		margin: 10px;
+	}
+
+	input[type="range"] {
+		-webkit-appearance: none;
+		/* Override default CSS styles */
+		appearance: none;
+		height: 2px;
+		background: white;
+		outline: none;
+		opacity: 0.7;
+		-webkit-transition: .2s;
+		transition: opacity .2s;
+	}
+
+	input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		/* Override default look */
+		appearance: none;
+		width: 25px;
+		height: 25px;
+		background: #4CAF50;
+		cursor: pointer;
+	}
+
+	input[type="range"]:hover {
+		opacity: 1;
+	}
+
+	button {
+		all: unset;
+		border: 1px solid black;
+		margin-top: 25px;
+		padding: 5px;
+		background: none;
+	}
+
+	select {
+		border: 1px solid white;
+		padding: 5px;
+		background: none;
+		color: white;
+	}
+
+
+	.title {
+		margin-top: 1.5em;
+	}
+
+	#editor {
+		z-index: 10;
+		font-size: .8em;
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		color: black;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		padding: 10px;
+		border: 1px solid rgba(255, 255, 255, .3);
+		transition: opacity .2s;
+		overflow-y: scroll;
+		background-color: white;
+	}
+
+	.close {
+		margin-bottom: 1em;
+	}
+</style>
+
+<body>
+	<div id="editor">
+	</div>
+</body>
+
+<script type="module" src="./script.js"></script>
+
+</html>
