@@ -45,8 +45,8 @@ let width = window.innerWidth;
 let image_height = height * .90;
 let image_width = image_height * aspect;
 
-let option_1 = 'lighter';
-let option_2 = 'exclusion';
+let option_1 = 'multiply';
+let option_2 = 'difference';
 
 function draw(timestamp) {
 	requestAnimationFrame(draw);
@@ -76,7 +76,16 @@ function draw(timestamp) {
 	}
 
 	else {
-		ctx.drawImage(images[index], 0, 0, image_width, image_height);
+		// ctx.drawImage(images[index], 0, 0, image_width, image_height);
+		//
+		// --> 
+		// Gives sharp edges mapped to speed slider
+		let x_offset = index * image_width / speed();
+		// --> 
+		// Using both will give corners
+		let y_offset = index * image_height / speed();
+
+		ctx.drawImage(images[index], x_offset, y_offset, image_width, image_height);
 	}
 
 }
