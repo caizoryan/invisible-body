@@ -3,7 +3,7 @@ import { sig, render, html, eff_on } from "./solid_monke/solid_monke.js";
 let canvas = document.createElement('canvas');
 let ctx = canvas.getContext('2d');
 let img_width, img_height, images
-let total = 180
+let total = 7
 
 let editor = document.getElementById('editor');
 
@@ -12,7 +12,7 @@ function load_images(len) {
 	let images = [];
 	for (let i = 1; i <= len; i++) {
 		let img = new Image();
-		img.src = `./images_smol/img_${i}.jpg`;
+		img.src = `./another/img_${i}.jpg`;
 		images.push(img);
 	}
 	console.log(images);
@@ -30,18 +30,6 @@ function clear() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function set_inc(value) {
-	speed = value;
-}
-
-function set_inc_to(value) {
-	inc_to = value;
-}
-
-function set_alpha(value) {
-	alpha = value;
-}
-
 
 let timer = 0;
 let speed = sig(250)
@@ -57,11 +45,12 @@ let width = window.innerWidth;
 let image_height = height * .90;
 let image_width = image_height * aspect;
 
-let option_1 = 'source-over';
-let option_2 = 'source-over';
+let option_1 = 'lighter';
+let option_2 = 'exclusion';
 
 function draw(timestamp) {
 	requestAnimationFrame(draw);
+
 	if (start === undefined) {
 		start = timestamp
 		timer = speed();
